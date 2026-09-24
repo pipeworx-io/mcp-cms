@@ -1,20 +1,32 @@
 {
   "name": "@pipeworx/mcp-cms",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "CMS Open Data MCP — US Centers for Medicare & Medicaid Services.",
   "type": "module",
   "main": "src/index.ts",
   "types": "src/index.ts",
+  "bin": {
+    "mcp-cms": "bin/cli.js"
+  },
   "keywords": ["mcp", "mcp-server", "model-context-protocol", "pipeworx", "cms"],
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pipeworx-io/mcp-cms"
+    "url": "git+https://github.com/pipeworx-io/mcp-cms.git"
   },
   "scripts": {
     "typecheck": "tsc --noEmit"
   },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "tsx": "^4.19.0"
+  },
   "devDependencies": {
-    "typescript": "^5.7.0"
+    "typescript": "^5.9.3",
+    "@cloudflare/workers-types": "^4.20260405.1"
+  },
+  "pipeworx": {
+    "sourceHash": "v1-6013b560f8dc7dc30016845e1c993dc046eb2980751dd5f5940ea20e564ff9f0",
+    "sourceCommit": "60f04b68c347e970c6be94a53439d1364061fc06"
   }
 }
