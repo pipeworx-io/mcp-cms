@@ -3,7 +3,7 @@
   "name": "io.github.pipeworx-io/cms",
   "title": "Cms",
   "description": "CMS Open Data MCP — US Centers for Medicare & Medicaid Services.",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "websiteUrl": "https://pipeworx.io/packs/cms",
   "repository": {
     "url": "https://github.com/pipeworx-io/mcp-cms",
