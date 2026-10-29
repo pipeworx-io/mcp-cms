@@ -1,0 +1,70 @@
+[
+  {
+    "name": "search_datasets",
+    "description": "Find CMS dataset IDs + titles by keyword. CMS publishes Medicare/Medicaid open data (provider data, spending, enrollment, drug pricing, quality measures, hospitals, nursing homes, ACOs, etc.). Searches the CMS DCAT catalog client-side over each dataset title/description/keywords. Returns the datasetId (UUID) you pass to get_dataset and dataset_info.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "keyword": {
+          "type": "string",
+          "description": "Search term, e.g. \"hospital\", \"drug spending\", \"nursing home\", \"enrollment\"."
+        },
+        "limit": {
+          "type": "number",
+          "description": "Max datasets to return (default 25, max 100)."
+        }
+      },
+      "required": [
+        "keyword"
+      ]
+    }
+  },
+  {
+    "name": "get_dataset",
+    "description": "Pull rows from a CMS dataset by datasetId (UUID from search_datasets). Returns an array of row objects whose keys are the dataset columns. Supports paging (size/offset), full-text keyword search across the dataset, and exact-match column filters via filters: {COLUMN: VALUE} (column names match the keys in returned rows, e.g. {\"State\": \"TX\"}).",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "datasetId": {
+          "type": "string",
+          "description": "Dataset UUID from search_datasets, e.g. \"9767cb68-8ea9-4f0b-8179-9431abc89f11\"."
+        },
+        "size": {
+          "type": "number",
+          "description": "Rows per page (default 100)."
+        },
+        "offset": {
+          "type": "number",
+          "description": "Row offset for paging (default 0)."
+        },
+        "keyword": {
+          "type": "string",
+          "description": "Optional full-text search across all columns."
+        },
+        "filters": {
+          "type": "object",
+          "description": "Optional exact-match column filters, e.g. {\"State\": \"TX\", \"Provider_Type\": \"Hospital\"}. Becomes filter[COLUMN]=VALUE."
+        }
+      },
+      "required": [
+        "datasetId"
+      ]
+    }
+  },
+  {
+    "name": "dataset_info",
+    "description": "Metadata for a CMS dataset by datasetId: title, description, total row count, last-modified date, themes/keywords, and downloadable resources (CSV files, data dictionaries). Use after search_datasets to inspect a dataset before pulling rows.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "datasetId": {
+          "type": "string",
+          "description": "Dataset UUID from search_datasets."
+        }
+      },
+      "required": [
+        "datasetId"
+      ]
+    }
+  }
+]
