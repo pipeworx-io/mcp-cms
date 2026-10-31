@@ -1,6 +1,6 @@
 {
   "name": "@pipeworx/mcp-cms",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "CMS Open Data MCP — US Centers for Medicare & Medicaid Services.",
   "type": "module",
   "main": "lib/index.js",
@@ -27,7 +27,7 @@
     "mode": "gateway",
     "slug": "cms",
     "gatewaySlug": "cms",
-    "sourceHash": "v1-6fc560b0508e06bb8bf066c9fa978ffe71eddf02e7dbe9ab7cbfc7f6be8edd5e",
-    "sourceCommit": "4277282d72f9bf55e548b3799aaf737baf22152f"
+    "sourceHash": "v1-c1d35f8a8f756a51a0b72faea587e106eef4d50e6b2c469e3c25f9698856b3de",
+    "sourceCommit": "8cc978183948532674e797c429305c9d8ab2a1c3"
   }
 }
